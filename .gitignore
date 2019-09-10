@@ -1,0 +1,14 @@
+#ignore obj & bin-folder
+obj/
+bin/
+.vs/
+
+#ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
