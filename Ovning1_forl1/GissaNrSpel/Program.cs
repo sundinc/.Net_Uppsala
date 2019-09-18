@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
 
-namespace GissaNrSpel
+namespace GuessNumberGame
 {
-  
   static class Game
   {
     static ArrayList gameHistory = new ArrayList();
@@ -17,19 +16,19 @@ namespace GissaNrSpel
         if (choice == 1)
           PlayGame();
       }
-      Console.WriteLine("Game statistics (nr geuesses): " );
       int counter = 1;
+      Console.WriteLine("Game statistics (nr gyuesses): " );
       foreach (int i in gameHistory)
       {
-        Console.Write("Guesses game {0}: ", counter );
-        Console.Write(i + ". ");
+        Console.Write("Game nr {0}: ", counter);
+        Console.WriteLine(i + ". ");
         counter++;
-       }
-       Console.WriteLine();
+      }
+      Console.WriteLine();
     }
     static int Menu()
     {
-      string val = "";
+      string val = ".";
       while(!(val == "Y" || val == "N" || val == "y" || val == "n") )     //If it is not a valid reply, ask again
       {
         Console.WriteLine("Play game?: Y/N");

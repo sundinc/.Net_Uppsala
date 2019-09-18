@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ovning1_forl1", "Ovning1_forl1\Ovning1_forl1.csproj", "{4A641F36-8345-4CDB-97DB-ECFC8F4ABE6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GissaNrSpel", "GissaNrSpel\GissaNrSpel.csproj", "{99822E44-A9E4-4278-A5B4-436B3E4F0613}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuessNumberGame", "GissaNrSpel\GuessNumberGame.csproj", "{99822E44-A9E4-4278-A5B4-436B3E4F0613}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
