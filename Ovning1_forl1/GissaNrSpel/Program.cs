@@ -1,13 +1,78 @@
 ﻿using System;
 using System.Collections;
-
+using System.IO;
 namespace GuessNumberGame
 {
+  class Program
+  {
+    void Main( string[] args );
+  }
+
+  class UI
+  {
+    private HighScore scoreList;
+    private ArrayList printList;
+    public UI();
+    public string DrawUI();
+
+  }
+
+  class GuessNumber
+  {
+    private bool runGame;
+    private Score gameScore;
+    private HighScore scoreList;
+
+    public void GuessNumber(bool run);
+    public void PlayGame();
+
+    
+
+  }
+
+  class HighScore
+  {
+    private FileStream fStream;
+    private StreamWriter sWriter;
+    private StreamReader sReader;
+
+    public HighScore();
+    public bool SaveScore( ArrayList list );
+    public ArrayList PrintScore();
+
+  }
+
+  class Score
+  {
+    private string name;
+    private int guess;
+
+    public string Name
+    {
+      get { return name; }
+      set { name = value; }
+    }
+    public string Guess
+    {
+      get { return guess; }
+      set { guess = value; }
+    }
+
+    public void Score();
+  }
+
+
+
+
+
+
+
+
+
   static class Game
   {
     static ArrayList gameHistory = new ArrayList();
-    static void Main( string[] args )
-    {
+      void TempFunc() { 
       int choice = -1;
       Console.WriteLine("Welcome to the game!");
       while (choice != 0)
