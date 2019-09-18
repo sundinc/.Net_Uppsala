@@ -18,22 +18,25 @@ namespace GissaNrSpel
           PlayGame();
       }
       Console.WriteLine("Game statistics (nr geuesses): " );
+      int counter = 1;
       foreach (int i in gameHistory)
       {
-        Console.Write(i + " ");
-      }
-      Console.WriteLine();
+        Console.Write("Guesses game {0}: ", counter );
+        Console.Write(i + ". ");
+        counter++;
+       }
+       Console.WriteLine();
     }
     static int Menu()
     {
-      char val = '.';
-      while(!(val == 'Y' || val == 'N' || val == 'y' || val == 'n') )     //If it is not a valid reply, ask again
+      string val = "";
+      while(!(val == "Y" || val == "N" || val == "y" || val == "n") )     //If it is not a valid reply, ask again
       {
         Console.WriteLine("Play game?: Y/N");
-        val = Console.ReadKey().KeyChar;
+        val = Console.ReadLine();
         Console.WriteLine();
       }
-      if (val == 'n' || val == 'N')
+      if (val == "n" || val == "N")
         return 0;
       else
         return 1;
