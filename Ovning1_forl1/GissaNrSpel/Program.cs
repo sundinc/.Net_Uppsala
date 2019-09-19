@@ -23,7 +23,11 @@ namespace GuessNumberGame
     private Score gameScore;
     private HighScore scoreList;
 
-    public void GuessNumber(bool run);
+    public GuessNumber( bool run )
+    {
+      runGame = run;
+    }
+  }
     public void PlayGame();
 
     
@@ -58,7 +62,7 @@ namespace GuessNumberGame
       set { guess = value; }
     }
 
-    public void Score();
+    ////public void Score();
   }
 
 
