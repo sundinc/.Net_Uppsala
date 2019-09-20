@@ -5,15 +5,36 @@ namespace GuessNumberGame
 {
   class Program
   {
-    void Main( string[] args );
+    static void Main( string[] args )
+        {
+            UI test = new UI();
+            test.DrawUI();
+        }
   }
 
   class UI
   {
     private HighScore scoreList;
     private ArrayList printList;
-    public UI();
-    public string DrawUI();
+        private string greeting = "Välkommen till Gissa Numret!";
+        private int lDelimLength = 30;
+    public UI()
+    {
+            scoreList = new HighScore();
+    }
+    public string DrawUI()
+    {
+            {   //Greeting
+                for (int i = 0; i <= lDelimLength; i++)
+                    Console.Write("x");
+                Console.WriteLine("\n{0}", greeting);
+                for (int i = 0; i <= lDelimLength; i++)
+                    Console.Write("x");
+                Console.WriteLine();
+            }
+
+            return "Y";
+        }
 
   }
 
@@ -27,8 +48,12 @@ namespace GuessNumberGame
     {
       runGame = run;
     }
-  }
-    public void PlayGame();
+    public void PlayGame()
+        {
+
+        }
+    }
+    
 
     
 
@@ -40,9 +65,12 @@ namespace GuessNumberGame
     private StreamWriter sWriter;
     private StreamReader sReader;
 
-    public HighScore();
-    public bool SaveScore( ArrayList list );
-    public ArrayList PrintScore();
+    public HighScore() { }
+    public bool SaveScore( ArrayList score )
+    {
+        return false;
+    }
+    public ArrayList PrintScore() { return new ArrayList(); }
 
   }
 
@@ -56,13 +84,12 @@ namespace GuessNumberGame
       get { return name; }
       set { name = value; }
     }
-    public string Guess
+    public int Guess
     {
       get { return guess; }
       set { guess = value; }
     }
-
-    ////public void Score();
+    public Score() { }
   }
 
 
@@ -71,7 +98,7 @@ namespace GuessNumberGame
 
 
 
-
+/*
 
   static class Game
   {
@@ -109,7 +136,7 @@ namespace GuessNumberGame
       else
         return 1;
     }
-    static void PlayGame()
+    static void PlayGame_()
     {
       int currentNr = 0;
       Random rand = new Random();
@@ -143,3 +170,4 @@ namespace GuessNumberGame
     }
   }
 }
+*/
