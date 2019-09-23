@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xml:lang="sv" lang="sv">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Småstads kommun</title>
+		<link rel="stylesheet" href="../stylesheet/style.css" />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<header id="logo">
+				<h1>Småstad</h1>
+				<p>Kommunen där vi bryr oss om varandra</p>
+			</header><!-- End header -->
+
+
+			<nav>
+				<ul>
+					<li><a class="reports" href="startCoordinator.html">Start(Ärenden)</a></li>
+					<li><a class="reportAdd" href="reportCrime.html">Rapportera brott</a></li>
+					<li class="right"><a class="logout" href="../index.html">Logga ut</a></li>
+				</ul>
+			</nav><!-- End Nav -->
+
+			<div id="content">
+				<h2>Rapportera brott</h2>
+				<p class="info">Du är inloggad som samordnare</p>
+				
+				<p>Fyll i formuläret nedan, alla rutor markerade med stjärna (*) måste fyllas i</p>
+				<form method="post" action="validate.html">
+					<p>
+						<input type="hidden" name="isSubmitted" value="true" />
+					</p>
+					<p>
+						<span class="label">Var har brottet skett någonstans?</span><br />
+						<input type="text" name="place"/> *
+					</p>
+					<p>
+						<span class="label">Vilken typ av brott?</span><br />
+						<input type="text" name="crime" /> *
+					</p>
+					<p>
+						<span class="label">När skedde brottet?</span><br />
+						<input type="text" name="crimeDate" /> *
+					</p>
+					<p>
+						<span class="label">Ditt namn (för- och efternamn):</span><br />
+						<input type="text" name="informersName" /> *
+					</p>
+					<p>
+						<span class="label">Din telefon:</span><br />
+						<input type="text" name="phone" /> *
+					</p>
+					<p>
+						<span class="label">Beskriv din observation<br /> (ex. namn på misstänkt person):</span><br />
+						<textarea name="observation" rows="5" cols="16"></textarea>
+					</p>
+					<p>
+						<input class="button" type="submit" value="Skicka in" />
+					</p>
+				</form>
+
+				<footer>
+					&copy; Småstads Kommun All rights reserved.
+				</footer>
+			</div><!-- End Content -->
+		</div><!-- End Wrapper -->
+	</body>
+</html>

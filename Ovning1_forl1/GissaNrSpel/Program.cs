@@ -7,8 +7,18 @@ namespace GuessNumberGame
   {
     static void Main( string[] args )
         {
-            UI test = new UI();
-            test.DrawUI();
+            GuessNumber guess;
+            UI ui = new UI();
+            string ans = ui.DrawUI();
+            if (ans == "Ja" || ans == "ja")
+            {
+                guess = new GuessNumber(true);
+            }
+            else
+            {
+                guess = new GuessNumber(false);
+            }
+            guess.PlayGame();
         }
   }
 
@@ -16,8 +26,8 @@ namespace GuessNumberGame
   {
     private HighScore scoreList;
     private ArrayList printList;
-        private string greeting = "Välkommen till Gissa Numret!";
-        private int lDelimLength = 30;
+    private string greeting = "Välkommen till Gissa Numret!";
+    private int lDelimLength = 30;
     public UI()
     {
             scoreList = new HighScore();
@@ -31,9 +41,17 @@ namespace GuessNumberGame
                 for (int i = 0; i <= lDelimLength; i++)
                     Console.Write("x");
                 Console.WriteLine();
+                Console.WriteLine("Här ser du tidigare gissningar:");
             }
-
-            return "Y";
+            Console.WriteLine();
+            string val = "";
+            while (!(val == "Ja" || val == "Nej" || val == "ja" || val == "nej"))     //If it is not a valid reply, ask again
+            {
+                Console.WriteLine("Vill du spela (ja/nej)?");
+                val = Console.ReadLine();
+                Console.WriteLine();
+            }
+            return "val";
         }
 
   }
@@ -49,48 +67,87 @@ namespace GuessNumberGame
       runGame = run;
     }
     public void PlayGame()
+    {
+        int currentNr = 0;
+        Random rand = new Random();
+        int currentGuess = -1;
+        int nrGuesses = 0;
+        currentNr = rand.Next(1, 101);
+        Console.WriteLine("Guess the number! ");
+        while (currentGuess != currentNr)
         {
-
+            nrGuesses++;
+            try
+            {
+                currentGuess = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid number, try again.");
+                continue;
+            }
+            if (currentGuess > currentNr)
+            {
+                Console.WriteLine("Too high, try again.");
+            }
+            else if (currentGuess < currentNr)
+            {
+                Console.WriteLine("Too low, try again.");
+            }
         }
-    }
-    
-
-    
-
+        Console.WriteLine("Grattis! Numret var: {0} och antalet gissningar var: {1}", currentNr, nrGuesses);
+        }
   }
 
-  class HighScore
-  {
-    private FileStream fStream;
-    private StreamWriter sWriter;
-    private StreamReader sReader;
-
-    public HighScore() { }
-    public bool SaveScore( ArrayList score )
+    class HighScore
     {
-        return false;
+
+        private FileStream fStream;
+        private StreamWriter sWriter;
+        private StreamReader sReader;
+        private readonly string file = "text.txt";
+        public HighScore() { }
+        public bool SaveScore(ArrayList score)
+        {
+            return false;
+        }
+        public ArrayList PrintScore()
+        {
+            try
+            {
+                fStream = new FileStream(file, FileMode.Open);
+            }
+            catch 
+            {
+
+            }
+            return new ArrayList();
+        }
+
     }
-    public ArrayList PrintScore() { return new ArrayList(); }
 
-  }
-
-  class Score
-  {
-    private string name;
-    private int guess;
-
-    public string Name
+    class Score
     {
-      get { return name; }
-      set { name = value; }
+        private string name;
+        private int guess;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public int Guess
+        {
+            get { return guess; }
+            set { guess = value; }
+        }
+        public Score() { }
     }
-    public int Guess
-    {
-      get { return guess; }
-      set { guess = value; }
-    }
-    public Score() { }
-  }
+
+
+}
+
+  
 
 
 
